@@ -1,6 +1,7 @@
 import tkinter as tk
 import colors
 import random
+from tkinter import messagebox
 
 
 class Game(tk.Frame):
@@ -24,6 +25,7 @@ class Game(tk.Frame):
         self.master.bind("<Right>", self.right)
         self.master.bind("<Up>", self.up)
         self.master.bind("<Down>", self.down)
+        # self.master.bind("<space>", self.play30(30))
 
         self.mainloop()  # display main GUI until user will manually close it
 
@@ -210,21 +212,7 @@ class Game(tk.Frame):
     # Check if Game is Over - no possible moves
     def gameOver(self):
         if any(2048 in row for row in self.matrix):
-            gameOverFrame = tk.Frame(self.mainGrid, borderwidth=2)
-            gameOverFrame.place(relx=0.5, rely=0.5, anchor="center")
-            tk.Label(
-                gameOverFrame,
-                text="You win!",
-                bg=colors.WINNER_BG,
-                fg=colors.GAME_OVER_FONT_COLOR,
-                font=colors.GAME_OVER_FONT).pack()
+            messagebox.showinfo('2048', message='Congratulation! You win!')
         elif not any(0 in row for row in
                      self.matrix) and not self.horizontalMoveExists() and not self.verticalMoveExists():
-            gameOverFrame = tk.Frame(self.mainGrid, borderwidth=2)
-            gameOverFrame.place(relx=0.5, rely=0.5, anchor="center")
-            tk.Label(
-                gameOverFrame,
-                text="Game over!",
-                bg=colors.LOSER_BG,
-                fg=colors.GAME_OVER_FONT_COLOR,
-                font=colors.GAME_OVER_FONT).pack()
+            messagebox.showinfo('2048', message='Hmm, youre not that good. Lost on whole mark')
