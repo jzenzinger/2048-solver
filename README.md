@@ -17,3 +17,6 @@ You will test how the "artificial intelligence
 * https://en.wikipedia.org/wiki/2048_(video_game)
 
 * https://gsurma.medium.com/2048-solving-2048-with-monte-carlo-tree-search-ai-2dbe76894bab
+
+### Type:
+School project for Subject - **Artificial Intelligence**
